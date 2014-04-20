@@ -1,0 +1,15 @@
+<h1>List of Books</h1>
+
+<table frame="border" rules="all" cellpadding="5" width="500">
+  <tr>
+    <td><strong>Title</strong></td>
+    <td><strong>Author</strong></td>
+  </tr>
+
+  <% Book.read.each do |book_name| %>
+    <tr>
+      <td><%= book_name["title"] %></td>
+      <td><%= book_name["author"] %></td>
+    </tr>
+  <% end %>
+</table>
