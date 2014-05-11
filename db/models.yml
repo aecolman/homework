@@ -1,11 +1,16 @@
-Die:
-  - number: integer
-  - image: string
+Author:
+  - name: string
 
 Book:
+  - author_id: integer
   - title: string
-  - author: string
+  - price: integer
 
+Review:
+  - author_id: integer
+  - book_id: integer
+  - rating: integer
+  - caption: string
 
 # Example table for a typical Book model.
 #
