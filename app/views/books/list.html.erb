@@ -1,6 +1,6 @@
-<h1>List of Books</h1>
+<p><%= link_to "Home", "/" %></p>
 
-<p>Editor's Pick: </p>
+<h1>Our Catalog</h1>
 
 <table frame="border" rules="all" cellpadding="5" width="500">
   <tr>
@@ -10,7 +10,7 @@
 
   <% Book.read.order("title").each do |book_name| %>
     <tr>
-      <td><%= book_name["title"] %></td>
+      <td><%= link_to book_name["title"], "/books/#{book_name["id"]}" %></td>
       <td><%= Review.where("book_id" => book_name["id"]).average("rating") %></td>
     </tr>
   <% end %>

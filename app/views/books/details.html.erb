@@ -1,0 +1,27 @@
+<p>
+<%= link_to "Home", "/" %> | <%= link_to "List of Books", "/books" %>
+</p>
+
+<% the_id = params["id"] %>
+
+<% the_book = Book.read(the_id) %>
+
+<h2><%= the_book["title"] %> | $<%= the_book["price"] %></h2>
+
+<p>Average Rating: <%= Review.where("book_id" => the_id).average("rating") %> stars</p>
+
+<table frame="border" rules="all" cellpadding="5" width="500">
+
+  <tr>
+    <td><strong>Rating</strong></td>
+    <td><strong>Comments</strong></td>
+</tr>
+
+  <% Review.where("book_id" => the_id).order("rating desc").each do |the_review| %>
+    <tr>
+      <td><%= the_review["rating"] %></td>
+      <td><%= the_review["caption"] %></td>
+    </tr>
+  <% end %>
+
+</table>
