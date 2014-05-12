@@ -1,14 +1,13 @@
-<p>
+<p><strong>
 <%= link_to "Home", "/", "method" => "patch" %> | <%= link_to "Catalog", "/books" %>
-</p>
+</strong></p>
 
 <% the_id = params["id"] %>
-
 <% the_book = Book.read(the_id) %>
 
 <h2><%= the_book["title"] %> | $<%= the_book["price"] %></h2>
 
-<p>Average Rating: <%= Review.where("book_id" => the_id).average("rating") %> stars</p>
+<p>Average Rating: <%= Review.where("book_id" => the_id).average("rating") %></p>
 
 <table frame="border" rules="all" cellpadding="5" width="500">
 
