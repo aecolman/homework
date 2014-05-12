@@ -1,5 +1,9 @@
 <h1>Colman's Bookstore</h1>
 
-<p>Editor's Pick: </p>
+<% max_rating = Book.maximum("avg_rating") %>
+
+<% the_pick = Book.find_by("avg_rating" => max_rating) %>
+
+<p>Editor's Pick: <%= link_to the_pick["title"], "/books/#{the_pick["id"]}" %></p>
 
 <p><%= link_to "View Our Full Catalog", "/books" %></p>

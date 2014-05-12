@@ -1,5 +1,6 @@
 Homework::Application.routes.draw do
 
+  patch "/" => "reviews#update"
   get "/" => "books#index"
 
   get "/books" => "books#list"

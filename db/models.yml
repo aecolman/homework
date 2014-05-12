@@ -5,6 +5,7 @@ Book:
   - author_id: integer
   - title: string
   - price: integer
+  - avg_rating: float
 
 Review:
   - author_id: integer
